@@ -1,16 +1,8 @@
 ---
 
-#- name: List install packages for Broker Node
-## become: yes
-##  ansible.builtin.debug: msg="{{ item }}"
-# with_lines: cat /etc/fstab
-  #with_lines: cat ${WORKSPACE}/roles/install_mq_base/install_packages.txt
-
-
-
 - name: List install packages for Broker Node
   become: yes
-  shell:  pwd #;  cat install_packages.txt
+  shell:  cat /softwares/MQ_and_ESB_BRK/install_files/broker_inst_packages.txt
   register: psout
 
 - debug:
