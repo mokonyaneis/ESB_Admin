@@ -10,7 +10,7 @@
 
 - name: List install packages for Broker Node
   become: yes
-  shell: cat ./roles/install_mq_base/tasks/install_packages.txt
+  shell: cat ${WORKSPACE}/roles/install_mq_base/tasks/install_packages.txt
   register: psout
 
 - debug:
