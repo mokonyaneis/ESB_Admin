@@ -1,0 +1,3 @@
+- hosts: mqlab
+  roles: 
+     - install_mq_base

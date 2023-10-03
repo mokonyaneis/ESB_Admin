@@ -1,0 +1,26 @@
+---
+
+- name: Copy MQ queue manager config
+  copy:
+   src: METDEV.QUE.MGR.mqsc
+   dest: /var/mqm/config/
+
+- name: Create MQ Queue Manager 
+  command: "{{item}}"
+  with_items:
+   - sudo su - mqm
+   - crtmqm -lc -c "LAB MET queue manager" -d METLAB.QUE.MGR -lf 1024 -lp 3 -ls 2 -p 2022 -u .DLQ -ld /mqlogs METLAB.QUE.MGR
+ # - crtmqm -lc -c "LAB MET queue manager" -d METLAB.QUE.MGR -lf 1024 -lp 3 -ls 2 -p 2022 -u .DLQ -ld /mqlogs -md /mqdata METLAB.QUE.MGR   
+
+#- name: Start MQ queue manager
+#  command: "{{item}}"
+#  with_items:
+#   - sudo su - mqm
+#   - strmqm METLAB.QUE.MGR
+
+#- name: Import MQ QMGR Configs
+#  command: "{{item}}"
+#  with_items:
+#   - sudo su - mqm
+#   - runmqsc METLAB.QUE.MGR < /tmp/METDEV.QUE.MGR.mqsc
+

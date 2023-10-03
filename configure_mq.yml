@@ -1,0 +1,15 @@
+---
+# Configure MQ object for LAB with static content
+
+- hosts: mqlab
+  roles: 
+     - install_mq_base
+#    - create_mq_AuthRecs
+#    - create_mq_ChlAuth
+#    - create_mq_CHLS
+    #- { role: create_mq_Lstn , tags: [ 'crtlisteners' ]}
+    #- { role: create_mq_QMGR, tags: [ 'crtQmgr' ]}
+#    - create_mq_Qs
+#    - restart_mq_QMGR
+#    - restart_mq_SUB_Topics
+  

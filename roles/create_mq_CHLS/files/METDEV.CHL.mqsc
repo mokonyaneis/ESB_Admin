@@ -1,0 +1,586 @@
+DEFINE CHANNEL('ISD_TO_METLAB_CHL') +
+   CHLTYPE(RCVR) +
+*  ALTDATE(2018-05-09) +
+*  ALTTIME(10.46.55) +
+   BATCHSZ(50) +
+   CERTLABL(' ') +
+   COMPHDR(NONE) +
+   COMPMSG(NONE) +
+   DESCR('Receiver Channel from ISD @ momentum to Khula') +
+   HBINT(300) +
+   KAINT(AUTO) +
+   MAXMSGL(4194304) +
+   MCAUSER(' ') +
+   MONCHL(QMGR) +
+   MRDATA(' ') +
+   MREXIT(' ') +
+   MRRTY(10) +
+   MRTMR(1000) +
+   MSGDATA(' ') +
+   MSGEXIT(' ') +
+   NPMSPEED(FAST) +
+   PUTAUT(DEF) +
+   RCVDATA(' ') +
+   RCVEXIT(' ') +
+*  RESETSEQ(NO) +
+   SCYDATA(' ') +
+   SCYEXIT(' ') +
+   SENDDATA(' ') +
+   SENDEXIT(' ') +
+   SEQWRAP(999999999) +
+   SSLCAUTH(REQUIRED) +
+   SSLCIPH(' ') +
+   SSLPEER(' ') +
+   STATCHL(QMGR) +
+   TRPTYPE(TCP) +
+   USEDLQ(YES) +
+   REPLACE
+DEFINE CHANNEL('METLAB_TO_ISD_CHL') +
+   CHLTYPE(SDR) +
+*  ALTDATE(2018-05-09) +
+*  ALTTIME(10.46.55) +
+   BATCHHB(0) +
+   BATCHINT(0) +
+   BATCHLIM(5000)  +
+   BATCHSZ(50) +
+   CERTLABL(' ') +
+   COMPHDR(NONE) +
+   COMPMSG(NONE) +
+   CONNAME('localhost(1414)') +
+   CONVERT(NO) +
+   DESCR('Khula Dev to ISD @ Momentum') +
+   DISCINT(6000) +
+   HBINT(300) +
+   KAINT(AUTO) +
+   LOCLADDR(' ') +
+   LONGRTY(999999999) +
+   LONGTMR(1200) +
+   MAXMSGL(4194304) +
+   MCANAME(' ') +
+   MCATYPE(PROCESS) +
+   MCAUSER(' ') +
+   MONCHL(QMGR) +
+   MSGDATA(' ') +
+   MSGEXIT(' ') +
+   NPMSPEED(FAST) +
+   PASSWORD(' ') +
+   PROPCTL(COMPAT) +
+   RCVDATA(' ') +
+   RCVEXIT(' ') +
+*  RESETSEQ(NO) +
+   SCYDATA(' ') +
+   SCYEXIT(' ') +
+   SENDDATA(' ') +
+   SENDEXIT(' ') +
+   SEQWRAP(999999999) +
+   SHORTRTY(10) +
+   SHORTTMR(60) +
+   SSLCIPH(' ') +
+   SSLPEER(' ') +
+   STATCHL(QMGR) +
+   TRPTYPE(TCP) MODENAME(' ') TPNAME(' ') +
+   USEDLQ(YES) +
+   USERID(' ') +
+   XMITQ('MQ.XQ.METLAB.TO.ISD') +
+   REPLACE
+DEFINE CHANNEL('MQCH.MOM.TO.BSM') +
+   CHLTYPE(RCVR) +
+*  ALTDATE(2018-05-09) +
+*  ALTTIME(10.46.55) +
+   BATCHSZ(50) +
+   CERTLABL(' ') +
+   COMPHDR(NONE) +
+   COMPMSG(NONE) +
+   DESCR(' ') +
+   HBINT(300) +
+   KAINT(AUTO) +
+   MAXMSGL(4194304) +
+   MCAUSER(' ') +
+   MONCHL(QMGR) +
+   MRDATA(' ') +
+   MREXIT(' ') +
+   MRRTY(10) +
+   MRTMR(1000) +
+   MSGDATA(' ') +
+   MSGEXIT(' ') +
+   NPMSPEED(FAST) +
+   PUTAUT(DEF) +
+   RCVDATA(' ') +
+   RCVEXIT(' ') +
+*  RESETSEQ(NO) +
+   SCYDATA(' ') +
+   SCYEXIT(' ') +
+   SENDDATA(' ') +
+   SENDEXIT(' ') +
+   SEQWRAP(999999999) +
+   SSLCAUTH(REQUIRED) +
+   SSLCIPH(' ') +
+   SSLPEER(' ') +
+   STATCHL(QMGR) +
+   TRPTYPE(TCP) +
+   USEDLQ(YES) +
+   REPLACE
+DEFINE CHANNEL('SYSTEM.ADMIN.SVRCONN') +
+   CHLTYPE(SVRCONN) +
+*  ALTDATE(2018-05-09) +
+*  ALTTIME(10.46.55) +
+   CERTLABL(' ') +
+   COMPHDR(NONE) +
+   COMPMSG(NONE) +
+   DESCR(' ') +
+   DISCINT(0) +
+   HBINT(300) +
+   KAINT(AUTO) +
+   MAXINST(999999999) +
+   MAXINSTC(999999999) +
+   MAXMSGL(4194304) +
+   MCAUSER(' ') +
+   MONCHL(QMGR) +
+   RCVDATA(' ') +
+   RCVEXIT(' ') +
+   SCYDATA(' ') +
+   SCYEXIT(' ') +
+   SENDDATA(' ') +
+   SENDEXIT(' ') +
+   SHARECNV(10) +
+   SSLCAUTH(REQUIRED) +
+   SSLCIPH(' ') +
+   SSLPEER(' ') +
+   TRPTYPE(TCP) +
+   REPLACE
+DEFINE CHANNEL('SYSTEM.AUTO.RECEIVER') +
+   CHLTYPE(RCVR) +
+*  ALTDATE(2018-05-09) +
+*  ALTTIME(10.46.55) +
+   BATCHSZ(50) +
+   CERTLABL(' ') +
+   COMPHDR(NONE) +
+   COMPMSG(NONE) +
+   DESCR('Auto-defined by') +
+   HBINT(300) +
+   KAINT(AUTO) +
+   MAXMSGL(4194304) +
+   MCAUSER(' ') +
+   MONCHL(QMGR) +
+   MRDATA(' ') +
+   MREXIT(' ') +
+   MRRTY(10) +
+   MRTMR(1000) +
+   MSGDATA(' ') +
+   MSGEXIT(' ') +
+   NPMSPEED(FAST) +
+   PUTAUT(DEF) +
+   RCVDATA(' ') +
+   RCVEXIT(' ') +
+*  RESETSEQ(NO) +
+   SCYDATA(' ') +
+   SCYEXIT(' ') +
+   SENDDATA(' ') +
+   SENDEXIT(' ') +
+   SEQWRAP(999999999) +
+   SSLCAUTH(REQUIRED) +
+   SSLCIPH(' ') +
+   SSLPEER(' ') +
+   STATCHL(QMGR) +
+   TRPTYPE(TCP) +
+   USEDLQ(YES) +
+   REPLACE
+DEFINE CHANNEL('SYSTEM.AUTO.SVRCONN') +
+   CHLTYPE(SVRCONN) +
+*  ALTDATE(2018-05-09) +
+*  ALTTIME(10.46.55) +
+   CERTLABL(' ') +
+   COMPHDR(NONE) +
+   COMPMSG(NONE) +
+   DESCR('Auto-defined by') +
+   DISCINT(0) +
+   HBINT(300) +
+   KAINT(AUTO) +
+   MAXINST(999999999) +
+   MAXINSTC(999999999) +
+   MAXMSGL(4194304) +
+   MCAUSER(' ') +
+   MONCHL(QMGR) +
+   RCVDATA(' ') +
+   RCVEXIT(' ') +
+   SCYDATA(' ') +
+   SCYEXIT(' ') +
+   SENDDATA(' ') +
+   SENDEXIT(' ') +
+   SHARECNV(10) +
+   SSLCAUTH(REQUIRED) +
+   SSLCIPH(' ') +
+   SSLPEER(' ') +
+   TRPTYPE(TCP) +
+   REPLACE
+DEFINE CHANNEL('SYSTEM.DEF.CLUSRCVR') +
+   CHLTYPE(CLUSRCVR) +
+*  ALTDATE(2018-05-09) +
+*  ALTTIME(10.46.55) +
+   BATCHHB(0) +
+   BATCHINT(0) +
+   BATCHLIM(5000)  +
+   BATCHSZ(50) +
+   CERTLABL(' ') +
+   CLUSNL(' ') +
+   CLUSTER(' ') +
+   CLWLPRTY(0) +
+   CLWLRANK(0) +
+   CLWLWGHT(50) +
+   COMPHDR(NONE) +
+   COMPMSG(NONE) +
+   CONNAME(' ') +
+   CONVERT(NO) +
+   DESCR(' ') +
+   DISCINT(6000) +
+   HBINT(300) +
+   KAINT(AUTO) +
+   LOCLADDR(' ') +
+   LONGRTY(999999999) +
+   LONGTMR(1200) +
+   MAXMSGL(4194304) +
+   MCANAME(' ') +
+   MCATYPE(THREAD) +
+   MCAUSER(' ') +
+   MONCHL(QMGR) +
+   MRDATA(' ') +
+   MREXIT(' ') +
+   MRRTY(10) +
+   MRTMR(1000) +
+   MSGDATA(' ') +
+   MSGEXIT(' ') +
+   NETPRTY(0) +
+   NPMSPEED(FAST) +
+   PROPCTL(COMPAT) +
+   PUTAUT(DEF) +
+   RCVDATA(' ') +
+   RCVEXIT(' ') +
+*  RESETSEQ(NO) +
+   SCYDATA(' ') +
+   SCYEXIT(' ') +
+   SENDDATA(' ') +
+   SENDEXIT(' ') +
+   SEQWRAP(999999999) +
+   SHORTRTY(10) +
+   SHORTTMR(60) +
+   SSLCAUTH(REQUIRED) +
+   SSLCIPH(' ') +
+   SSLPEER(' ') +
+   STATCHL(QMGR) +
+   TRPTYPE(TCP) MODENAME(' ') TPNAME(' ') +
+   USEDLQ(YES) +
+   REPLACE
+DEFINE CHANNEL('SYSTEM.DEF.CLUSSDR') +
+   CHLTYPE(CLUSSDR) +
+*  ALTDATE(2018-05-09) +
+*  ALTTIME(10.46.55) +
+   BATCHHB(0) +
+   BATCHINT(0) +
+   BATCHLIM(5000)  +
+   BATCHSZ(50) +
+   CLUSNL(' ') +
+   CLUSTER(' ') +
+   CLWLPRTY(0) +
+   CLWLRANK(0) +
+   CLWLWGHT(50) +
+   COMPHDR(NONE) +
+   COMPMSG(NONE) +
+   CONNAME(' ') +
+   CONVERT(NO) +
+   DESCR(' ') +
+   DISCINT(6000) +
+   HBINT(300) +
+   KAINT(AUTO) +
+   LOCLADDR(' ') +
+   LONGRTY(999999999) +
+   LONGTMR(1200) +
+   MAXMSGL(4194304) +
+   MCANAME(' ') +
+   MCATYPE(THREAD) +
+   MCAUSER(' ') +
+   MONCHL(QMGR) +
+   MSGDATA(' ') +
+   MSGEXIT(' ') +
+   NPMSPEED(FAST) +
+   PASSWORD(' ') +
+   PROPCTL(COMPAT) +
+   RCVDATA(' ') +
+   RCVEXIT(' ') +
+*  RESETSEQ(NO) +
+   SCYDATA(' ') +
+   SCYEXIT(' ') +
+   SENDDATA(' ') +
+   SENDEXIT(' ') +
+   SEQWRAP(999999999) +
+   SHORTRTY(10) +
+   SHORTTMR(60) +
+   SSLCIPH(' ') +
+   SSLPEER(' ') +
+   STATCHL(QMGR) +
+   TRPTYPE(TCP) MODENAME(' ') TPNAME(' ') +
+   USEDLQ(YES) +
+   USERID(' ') +
+   REPLACE
+DEFINE CHANNEL('SYSTEM.DEF.RECEIVER') +
+   CHLTYPE(RCVR) +
+*  ALTDATE(2018-05-09) +
+*  ALTTIME(10.46.55) +
+   BATCHSZ(50) +
+   CERTLABL(' ') +
+   COMPHDR(NONE) +
+   COMPMSG(NONE) +
+   DESCR(' ') +
+   HBINT(300) +
+   KAINT(AUTO) +
+   MAXMSGL(4194304) +
+   MCAUSER(' ') +
+   MONCHL(QMGR) +
+   MRDATA(' ') +
+   MREXIT(' ') +
+   MRRTY(10) +
+   MRTMR(1000) +
+   MSGDATA(' ') +
+   MSGEXIT(' ') +
+   NPMSPEED(FAST) +
+   PUTAUT(DEF) +
+   RCVDATA(' ') +
+   RCVEXIT(' ') +
+*  RESETSEQ(NO) +
+   SCYDATA(' ') +
+   SCYEXIT(' ') +
+   SENDDATA(' ') +
+   SENDEXIT(' ') +
+   SEQWRAP(999999999) +
+   SSLCAUTH(REQUIRED) +
+   SSLCIPH(' ') +
+   SSLPEER(' ') +
+   STATCHL(QMGR) +
+   TRPTYPE(TCP) +
+   USEDLQ(YES) +
+   REPLACE
+DEFINE CHANNEL('SYSTEM.DEF.REQUESTER') +
+   CHLTYPE(RQSTR) +
+*  ALTDATE(2018-05-09) +
+*  ALTTIME(10.46.55) +
+   BATCHSZ(50) +
+   CERTLABL(' ') +
+   COMPHDR(NONE) +
+   COMPMSG(NONE) +
+   CONNAME(' ') +
+   DESCR(' ') +
+   HBINT(300) +
+   KAINT(AUTO) +
+   LOCLADDR(' ') +
+   MAXMSGL(4194304) +
+   MCANAME(' ') +
+   MCATYPE(PROCESS) +
+   MCAUSER(' ') +
+   MONCHL(QMGR) +
+   MRDATA(' ') +
+   MREXIT(' ') +
+   MRRTY(10) +
+   MRTMR(1000) +
+   MSGDATA(' ') +
+   MSGEXIT(' ') +
+   NPMSPEED(FAST) +
+   PASSWORD(' ') +
+   PUTAUT(DEF) +
+   RCVDATA(' ') +
+   RCVEXIT(' ') +
+*  RESETSEQ(NO) +
+   SCYDATA(' ') +
+   SCYEXIT(' ') +
+   SENDDATA(' ') +
+   SENDEXIT(' ') +
+   SEQWRAP(999999999) +
+   SSLCAUTH(REQUIRED) +
+   SSLCIPH(' ') +
+   SSLPEER(' ') +
+   STATCHL(QMGR) +
+   TRPTYPE(TCP) MODENAME(' ') TPNAME(' ') +
+   USEDLQ(YES) +
+   USERID(' ') +
+   REPLACE
+DEFINE CHANNEL('SYSTEM.DEF.SENDER') +
+   CHLTYPE(SDR) +
+*  ALTDATE(2018-05-09) +
+*  ALTTIME(10.46.55) +
+   BATCHHB(0) +
+   BATCHINT(0) +
+   BATCHLIM(5000)  +
+   BATCHSZ(50) +
+   CERTLABL(' ') +
+   COMPHDR(NONE) +
+   COMPMSG(NONE) +
+   CONNAME(' ') +
+   CONVERT(NO) +
+   DESCR(' ') +
+   DISCINT(6000) +
+   HBINT(300) +
+   KAINT(AUTO) +
+   LOCLADDR(' ') +
+   LONGRTY(999999999) +
+   LONGTMR(1200) +
+   MAXMSGL(4194304) +
+   MCANAME(' ') +
+   MCATYPE(PROCESS) +
+   MCAUSER(' ') +
+   MONCHL(QMGR) +
+   MSGDATA(' ') +
+   MSGEXIT(' ') +
+   NPMSPEED(FAST) +
+   PASSWORD(' ') +
+   PROPCTL(COMPAT) +
+   RCVDATA(' ') +
+   RCVEXIT(' ') +
+*  RESETSEQ(NO) +
+   SCYDATA(' ') +
+   SCYEXIT(' ') +
+   SENDDATA(' ') +
+   SENDEXIT(' ') +
+   SEQWRAP(999999999) +
+   SHORTRTY(10) +
+   SHORTTMR(60) +
+   SSLCIPH(' ') +
+   SSLPEER(' ') +
+   STATCHL(QMGR) +
+   TRPTYPE(TCP) MODENAME(' ') TPNAME(' ') +
+   USEDLQ(YES) +
+   USERID(' ') +
+   XMITQ(' ') +
+   REPLACE
+DEFINE CHANNEL('SYSTEM.DEF.SERVER') +
+   CHLTYPE(SVR) +
+*  ALTDATE(2018-05-09) +
+*  ALTTIME(10.46.55) +
+   BATCHHB(0) +
+   BATCHINT(0) +
+   BATCHLIM(5000)  +
+   BATCHSZ(50) +
+   CERTLABL(' ') +
+   COMPHDR(NONE) +
+   COMPMSG(NONE) +
+   CONNAME(' ') +
+   CONVERT(NO) +
+   DESCR(' ') +
+   DISCINT(6000) +
+   HBINT(300) +
+   KAINT(AUTO) +
+   LOCLADDR(' ') +
+   LONGRTY(999999999) +
+   LONGTMR(1200) +
+   MAXMSGL(4194304) +
+   MCANAME(' ') +
+   MCATYPE(PROCESS) +
+   MCAUSER(' ') +
+   MONCHL(QMGR) +
+   MSGDATA(' ') +
+   MSGEXIT(' ') +
+   NPMSPEED(FAST) +
+   PASSWORD(' ') +
+   PROPCTL(COMPAT) +
+   RCVDATA(' ') +
+   RCVEXIT(' ') +
+*  RESETSEQ(NO) +
+   SCYDATA(' ') +
+   SCYEXIT(' ') +
+   SENDDATA(' ') +
+   SENDEXIT(' ') +
+   SEQWRAP(999999999) +
+   SHORTRTY(10) +
+   SHORTTMR(60) +
+   SSLCAUTH(REQUIRED) +
+   SSLCIPH(' ') +
+   SSLPEER(' ') +
+   STATCHL(QMGR) +
+   TRPTYPE(TCP) MODENAME(' ') TPNAME(' ') +
+   USEDLQ(YES) +
+   USERID(' ') +
+   XMITQ(' ') +
+   REPLACE
+DEFINE CHANNEL('SYSTEM.DEF.SVRCONN') +
+   CHLTYPE(SVRCONN) +
+*  ALTDATE(2018-05-09) +
+*  ALTTIME(10.46.55) +
+   CERTLABL(' ') +
+   COMPHDR(NONE) +
+   COMPMSG(NONE) +
+   DESCR(' ') +
+   DISCINT(0) +
+   HBINT(300) +
+   KAINT(AUTO) +
+   MAXINST(999999999) +
+   MAXINSTC(999999999) +
+   MAXMSGL(4194304) +
+   MCAUSER(' ') +
+   MONCHL(QMGR) +
+   RCVDATA(' ') +
+   RCVEXIT(' ') +
+   SCYDATA(' ') +
+   SCYEXIT(' ') +
+   SENDDATA(' ') +
+   SENDEXIT(' ') +
+   SHARECNV(10) +
+   SSLCAUTH(REQUIRED) +
+   SSLCIPH(' ') +
+   SSLPEER(' ') +
+   TRPTYPE(TCP) +
+   REPLACE
+DEFINE CHANNEL('TCP.CLT.CHL') +
+   CHLTYPE(SVRCONN) +
+*  ALTDATE(2018-05-09) +
+*  ALTTIME(10.46.55) +
+   CERTLABL(' ') +
+   COMPHDR(NONE) +
+   COMPMSG(NONE) +
+   DESCR('Server-connection to METLAB') +
+   DISCINT(0) +
+   HBINT(300) +
+   KAINT(AUTO) +
+   MAXINST(999999999) +
+   MAXINSTC(999999999) +
+   MAXMSGL(4194304) +
+   MCAUSER(' ') +
+   MONCHL(QMGR) +
+   RCVDATA(' ') +
+   RCVEXIT(' ') +
+   SCYDATA(' ') +
+   SCYEXIT(' ') +
+   SENDDATA(' ') +
+   SENDEXIT(' ') +
+   SHARECNV(10) +
+   SSLCAUTH(REQUIRED) +
+   SSLCIPH(' ') +
+   SSLPEER(' ') +
+   TRPTYPE(TCP) +
+   REPLACE
+DEFINE CHANNEL('SYSTEM.DEF.CLNTCONN') +
+   CHLTYPE(CLNTCONN) +
+   AFFINITY(PREFERRED) +
+*  ALTDATE(2018-09-04) +
+*  ALTTIME(10.31.21) +
+   CERTLABL(' ') +
+   CLNTWGHT(0) +
+   COMPHDR(NONE) +
+   COMPMSG(NONE) +
+   CONNAME(' ') +
+   DEFRECON(NO) +
+   DESCR(' ') +
+   HBINT(300) +
+   KAINT(AUTO) +
+   LOCLADDR(' ') +
+   MAXMSGL(4194304) +
+   PASSWORD(' ') +
+   QMNAME(' ') +
+   RCVDATA(' ') +
+   RCVEXIT(' ') +
+   SCYDATA(' ') +
+   SCYEXIT(' ') +
+   SENDDATA(' ') +
+   SENDEXIT(' ') +
+   SHARECNV(10) +
+   SSLCIPH(' ') +
+   SSLPEER(' ') +
+   TRPTYPE(TCP) MODENAME(' ') TPNAME(' ') +
+   USERID(' ') +
+   REPLACE
