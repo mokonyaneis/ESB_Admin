@@ -9,10 +9,8 @@
 
 
 - name: List install packages for Broker Node
-  gather_facts: no
   become: yes
-  shell: |
-   cat /etc/fstab
+  shell: cat /etc/fstab
   register: psout
 
 - debug:
