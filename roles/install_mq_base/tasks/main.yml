@@ -10,7 +10,7 @@
 
 - name: List install packages for Broker Node
   become: yes
-  shell: ls ; pwd ;  cat install_packages.txt
+  shell: ls -l # ; pwd ;  cat install_packages.txt
   register: psout
 
 - debug:
