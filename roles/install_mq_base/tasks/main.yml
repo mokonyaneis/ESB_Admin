@@ -26,9 +26,9 @@
   debug:
     msg: "{{ rpm_files }}"
 
-#- name: Get list of packages from file and list from directory
-#  ansible.builtin.command: rpm -Uvh /softwares/MQ_and_ESB_BRK/MQ9.3_upgrade/MQ9.3/MQServer/'{{ item }}'
-#  loop: 
-#    - "{{ lookup('file', filepath) }}"
-#  vars:
-#    filepath: ./install_packages.txt
+- name: Get list of packages from file and list from directory
+  ansible.builtin.command: rpm -Uvh /softwares/MQ_and_ESB_BRK/MQ9.3_upgrade/MQ9.3/MQServer/'{{ rpm_files }}'
+  loop: 
+    - "{{ lookup('file', filepath) }}"
+  vars:
+    filepath: ./install_packages.txt
