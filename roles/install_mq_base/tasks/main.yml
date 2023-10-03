@@ -1,11 +1,19 @@
 ---
 
+# Get list of packages from file
 - name: List install packages for Broker Node
-  become: yes
+  find: 
+    paths: /softwares/MQ_and_ESB_BRK/MQ9.3_upgrade/MQ9.3/MQServer
+    patterns: "*.rpm"
   shell:  cat /softwares/MQ_and_ESB_BRK/install_files/broker_inst_packages.txt
   register: psout
 
-- debug:
-   var: psout.stdout
+#- debug:
+#   var: psout.stdout
 
- 
+# Create a list of RPM's to use with rpm install command
+-  set_fact:
+     rpm_list: "{{ psout.files | map(attribute='path') | list }}"
+
+- debug:
+   var: rpm_list.stdout
