@@ -31,4 +31,4 @@
   loop: 
     - "{{ lookup('file', filepath) }}"
   vars:
-    filepath: /softwares/MQ_and_ESB_BRK/install_files/broker_inst_packages.txt
+    filepath: ./install_packages.txt
