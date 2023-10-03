@@ -14,7 +14,7 @@
    register: lic_out
    
 - debug:
-   var: {{ lic_out|to_json }}
+   var: lic_out.stdout
 
 
 #- debug:
