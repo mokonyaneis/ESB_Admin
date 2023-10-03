@@ -15,14 +15,13 @@
      patterns: "*.rpm"
    register: rpm_files
 
+# Create a list of RPM's to use with rpm install command
+- set_fact:
+    rpm_list: "{{ rpm_files.files | map(attribute='path') | list }}"
+
 - debug:
    var: rpm_files
 
 - name: Show result
   debug:
     msg: "{{ rpm_files }}"
-
-# Create a list of RPM's to use with rpm install command
-- set_fact:
-    rpm_list: "{{ rpm_files.files | map(attribute='path') | list }}"
-
