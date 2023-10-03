@@ -1,6 +1,5 @@
 ---
 
 - name: List install packages for Broker Node
-  ansible.builtin.debug:
-    msg: "{{ item }}"
-    with_lines: cat ${WORKSPACE}/roles/install_mq_base/install_packages.j2
+  ansible.builtin.debug: msg="{{ item }}"
+  with_lines: cat ${WORKSPACE}/roles/install_mq_base/install_packages.txt
