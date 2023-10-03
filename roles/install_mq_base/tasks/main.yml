@@ -1,34 +1,34 @@
 ---
 
 # Get list of packages from file
-#- name: List install packages for Broker Node
-#  shell:  cat /softwares/MQ_and_ESB_BRK/install_files/broker_inst_packages.txt
-#  register: psout
+- name: List install packages for Broker Node
+  shell:  cat /softwares/MQ_and_ESB_BRK/install_files/broker_inst_packages.txt
+  register: psout
 
 #- debug:
 #   var: psout.stdout
 
 # Set file path
-#-  name:  Set file path for rpms
- #  find: 
- #    paths: /softwares/MQ_and_ESB_BRK/MQ9.3_upgrade/MQ9.3/MQServer
- #    patterns: "*.rpm"
- #  register: rpm_files
+-  name:  Set file path for rpms
+   find: 
+     paths: /softwares/MQ_and_ESB_BRK/MQ9.3_upgrade/MQ9.3/MQServer
+     patterns: "*.rpm"
+   register: rpm_files
 
 # Create a list of RPM's to use with rpm install command
-#- set_fact:
-#    rpm_list: "{{ rpm_files.files | map(attribute='path') | list }}"
+- set_fact:
+    rpm_list: "{{ rpm_files.files | map(attribute='path') | list }}"
 
-#- debug:
-#   var: rpm_files
+- debug:
+   var: rpm_files
 
-#- name: Show result
-#  debug:
-#    msg: "{{ rpm_files }}"
+- name: Show result
+  debug:
+    msg: "{{ rpm_files }}"
 
-- name: Get list of packages from file and list from directory
-  loop: 
-    - "{{ lookup('file', filepath) }}"
-    - ansible.builtin.command: rpm -Uvh /softwares/MQ_and_ESB_BRK/MQ9.3_upgrade/MQ9.3/MQServer/'{{ item }}'
-  vars:
-    filepath: ./install_packages.txt
+#- name: Get list of packages from file and list from directory
+#  ansible.builtin.command: rpm -Uvh /softwares/MQ_and_ESB_BRK/MQ9.3_upgrade/MQ9.3/MQServer/'{{ item }}'
+#  loop: 
+#    - "{{ lookup('file', filepath) }}"
+#  vars:
+#    filepath: ./install_packages.txt
