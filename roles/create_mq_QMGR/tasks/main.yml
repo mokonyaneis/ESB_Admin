@@ -1,7 +1,7 @@
 ---
 
 - name: print qmgr name
-  ansible.builtin.command: echo "{{ qmgr_name }}"
+  ansible.builtin.command: echo {{ qmgr_name }}
   register: qmgrname
 
 - debug:
@@ -9,17 +9,17 @@
 
 - name: create task
   ansible.builtin.shell: | 
-    - crtmqm -lc -u .DLQ -p 2022 "{{ qmgr_name }}"
+    - crtmqm -lc -u .DLQ -p 2022 {{ qmgr_name }}
   register: crt_cmd   
 
 - debug:
    var: crt_cmd.stdout
 
 - name: verify status
-  ansible.builtin.command: dspmq -m "{{ qmgr_name }}"
+  ansible.builtin.command: dspmq -m {{ qmgr_name }}
   register: command_output
 
-- debug: msg="The status of QMGR '{{ qmgr_name }}'' is:{{ command_output.stdout }}" 
+- debug: msg="The status of QMGR {{ qmgr_name }} is:{{ command_output.stdout }}" 
     
 
 
