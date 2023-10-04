@@ -18,11 +18,11 @@
 - debug:
    var: crt_cmd.stdout
 
-- name: verify status
-  ansible.builtin.command: dspmq -m {{ qmgr_name }}
-  register: command_output
+#- name: verify status
+#  ansible.builtin.command: dspmq -m {{ qmgr_name }}
+#  register: command_output
 
-- debug: msg="The status of QMGR {{ qmgr_name }} is:{{ command_output.stdout }}" 
+#- debug: msg="The status of QMGR {{ qmgr_name }} is:{{ command_output.stdout }}" 
     
 
 
