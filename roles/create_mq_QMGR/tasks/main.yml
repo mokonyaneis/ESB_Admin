@@ -1,11 +1,14 @@
 ---
 
 - name: Create MQ Queue Manager 
-  command: "{{item}}"
-  with_items:
-    - sudo su - mqm
-    - crtmqm -lc -c " '{{ qmgr_name }}' queue manager" -d "{{ qmgr_name }}" -lf 1024 -lp 3 -ls 2 -p 2022 -u .DLQ "{{ qmgr_name }}"
-  register: crt_cmd
+  become: true
+  tasks:
+    - name: create task
+      command: "{{ item }}"
+      with_items: 
+        - sudo su - mqm
+        - crtmqm -lc -c " '{{ qmgr_name }}' queue manager" -d "{{ qmgr_name }}" -lf 1024 -lp 3 -ls 2 -p 2022 -u .DLQ "{{ qmgr_name }}"
+    register: crt_cmd   
 
 - debug:
    var: crt_cmd.stdout
@@ -16,7 +19,6 @@
 
 - debug: msg="The status of QMGR {{ qmgr_name }} is:{{ command_output.stdout }}" 
     
-
 
 
 #- name: Copy MQ queue manager config
