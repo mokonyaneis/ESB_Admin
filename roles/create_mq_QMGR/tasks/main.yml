@@ -11,7 +11,7 @@
   command: "{{ item }}"
   with_items: 
     - sudo su - mqm
-    - crtmqm -lc -u  -q .DLQ -p 2022 "{{ qmgr_name }}"
+    - crtmqm -lc -u .DLQ -q -p 2022 "{{ qmgr_name }}"
   register: crt_cmd   
 
 - debug:
