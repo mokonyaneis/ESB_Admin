@@ -9,7 +9,7 @@
 
 - name: create task
   ansible.builtin.shell: | 
-    - crtmqm -lc -u .DLQ -p 2022 {{ qmgr_name }}
+    - crtmqm -lc -u .DLQ { qmgr_name }
   register: crt_cmd   
 
 - debug:
