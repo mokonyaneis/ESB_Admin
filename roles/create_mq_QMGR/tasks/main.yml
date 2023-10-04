@@ -7,14 +7,12 @@
 - debug:
    var: qmgrname.stdout
 
-- name: Create MQ Queue Manager 
-  tasks:
-    - name: create task
-      command: "{{ item }}"
-      with_items: 
-        - sudo su - mqm
-        - crtmqm -lc -u  -q -p 2022 "{{ qmgr_name }}"
-      register: crt_cmd   
+- name: create task
+  command: "{{ item }}"
+  with_items: 
+    - sudo su - mqm
+    - crtmqm -lc -u  -q -p 2022 "{{ qmgr_name }}"
+  register: crt_cmd   
 
 - debug:
    var: crt_cmd.stdout
