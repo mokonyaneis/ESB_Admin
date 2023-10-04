@@ -8,8 +8,9 @@
    var: qmgrname.stdout
 
 - name: create task
-  ansible.builtin.shell: | 
-    - crtmqm -lc -u .DLQ { qmgr_name }
+  ansible.builtin.shell: |
+    - ls -l 
+#    - crtmqm -lc -u .DLQ {{ qmgr_name }}
   register: crt_cmd   
 
 - debug:
