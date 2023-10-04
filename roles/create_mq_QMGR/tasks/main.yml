@@ -15,7 +15,7 @@
       with_items: 
         - sudo su - mqm
         #- crtmqm -lc -lf 1024 -lp 3 -ls 2 -p 2022 -u .DLQ "{{ qmgr_name }}"
-    register: crt_cmd   
+      register: crt_cmd   
 
 - debug:
    var: crt_cmd.stdout
