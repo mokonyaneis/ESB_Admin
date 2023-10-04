@@ -1,13 +1,10 @@
 ---
 
-#- name: Copy MQ queue manager config
-#  copy:
-#   src: METDEV.QUE.MGR.mqsc
-#   dest: /var/mqm/config/
-
-- name: qmgr_name
-  prompt: "Queue Manager Name"
-  private: no
+- name: Queue Manager Name
+  vars_prompt:
+  - name: qmgr_name
+    prompt: "Queue Manager Name"
+    private: no
 
 - name: Create MQ Queue Manager 
   command: "{{item}}"
@@ -26,3 +23,9 @@
 - debug: msg="The status of QMGR {{ qmgr_name }} is:{{ command_output.stdout }}" 
     
 
+
+
+#- name: Copy MQ queue manager config
+#  copy:
+#   src: METDEV.QUE.MGR.mqsc
+#   dest: /var/mqm/config/
