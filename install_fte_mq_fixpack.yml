@@ -1,3 +1,0 @@
-- hosts: mqlab
-  roles: 
-     - install_fte_mq_fixpack

@@ -1,8 +1,0 @@
-MQSeriesRuntime*.rpm
-MQSeriesJava*.rpm
-MQSeriesJRE*.rpm
-MQSeriesSDK*.rpm
-MQSeriesSamples*.rpm
-MQSeriesFTBase*.rpm
-MQSeriesFTAgent*.rpm
-MQSeriesFTTools*.rpm

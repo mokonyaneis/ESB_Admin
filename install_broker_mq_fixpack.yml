@@ -1,3 +1,0 @@
-- hosts: mqlab
-  roles: 
-     - install_broker_mq_fixpack

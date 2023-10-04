@@ -27,7 +27,7 @@ ALTER QMGR +
    DEADQ('.DLQ') +
    DEFCLXQ(SCTQ) +
    DEFXMITQ(' ') + 
-   DESCR(' ') +
+   DESCR('Test queue manager') +
    INHIBTEV(DISABLED) +
    IPADDRV(IPV4) +
    LOCALEV(DISABLED) +
