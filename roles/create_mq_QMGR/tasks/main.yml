@@ -9,7 +9,7 @@
 
 - name: create task
   become: true
-  ansible.builtin.command: sudo su - mqm ; crtmqm -lc -u .DLQ -q -p 2022 "{{ qmgr_name }}"
+  ansible.builtin.command: crtmqm -lc -u .DLQ -p 2022 "{{ qmgr_name }}"
   register: crt_cmd   
 
 - debug:
