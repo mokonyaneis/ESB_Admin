@@ -8,6 +8,7 @@
    var: qmgrname.stdout
 
 - name: create task
+  become: true
   ansible.builtin.shell: |
     - sudo su - mqm 
     - whoami
