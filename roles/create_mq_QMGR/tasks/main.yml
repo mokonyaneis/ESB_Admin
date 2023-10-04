@@ -10,10 +10,9 @@
 - name: create task
   become: true
   ansible.builtin.shell: |
-    - sudo su - mqm 
     - whoami
     - pwd
-#    - crtmqm -lc -u .DLQ {{ qmgr_name }}
+    - su - mqm -c "crtmqm -lc -u .DLQ {{ qmgr_name }}"
   register: crt_cmd   
 
 - debug:
