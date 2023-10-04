@@ -1,0 +1,3 @@
+- hosts: mqlab
+  roles: 
+     - create_mq_QMGR
