@@ -8,9 +8,11 @@
    var: qmgrname.stdout
 
 - name: create task
+  become: true
+  become_method: su
+  become_user: mqm
   command: "{{ item }}"
   with_items: 
-    - sudo su - mqm
     - crtmqm -lc -u .DLQ -q -p 2022 "{{ qmgr_name }}"
   register: crt_cmd   
 
