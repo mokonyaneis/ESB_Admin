@@ -1,5 +1,12 @@
 ---
 
+- name: print qmgr name
+  ansible.builtin.command: echo "{{ qmgr_name }}""
+  register: qmgrname
+
+- debug:
+   var: qmgrname.stdout
+
 - name: Create MQ Queue Manager 
   become: true
   tasks:
@@ -7,7 +14,7 @@
       command: "{{ item }}"
       with_items: 
         - sudo su - mqm
-        - crtmqm -lc -c " '{{ qmgr_name }}' queue manager" -d "{{ qmgr_name }}" -lf 1024 -lp 3 -ls 2 -p 2022 -u .DLQ "{{ qmgr_name }}"
+        - crtmqm -lc -lf 1024 -lp 3 -ls 2 -p 2022 -u .DLQ "{{ qmgr_name }}"
     register: crt_cmd   
 
 - debug:
