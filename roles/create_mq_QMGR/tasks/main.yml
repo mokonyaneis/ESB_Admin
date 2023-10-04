@@ -9,9 +9,9 @@
 
 - name: create task
   become: true
-  ansible.builtin.shell: |
-    - whoami
-    - pwd
+  #ansible.builtin.shell: |
+  ansible.builtin.command: whoami
+#    - pwd
 #    - su - mqm -c "crtmqm -lc -u .DLQ {{ qmgr_name }}"
   register: crt_cmd   
 
