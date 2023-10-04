@@ -1,11 +1,11 @@
 ---
 
-- name: print qmgr name
-  ansible.builtin.command: echo {{ qmgr_name }}
-  register: qmgrname
+#- name: print qmgr name
+#  ansible.builtin.command: echo {{ qmgr_name }}
+#  register: qmgrname
 
-- debug:
-   var: qmgrname.stdout
+#- debug:
+#   var: qmgrname.stdout
 
 - name: create task
   become: true
@@ -16,10 +16,3 @@
   register: command_output
 
 - debug: msg="Queue Manager {{ qmgr_name }} Created successful. Status:{{ command_output.stdout }}" 
-    
-
-
-#- name: Copy MQ queue manager config
-#  copy:
-#   src: METDEV.QUE.MGR.mqsc
-#   dest: /var/mqm/config/
