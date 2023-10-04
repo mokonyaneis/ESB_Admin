@@ -7,18 +7,18 @@
 - debug:
    var: qmgrname.stdout
 
-#- name: Create MQ Queue Manager 
-#  become: true
-#  tasks:
-#    - name: create task
-#      command: "{{ item }}"
-#      with_items: 
-#        - sudo su - mqm
-        #- crtmqm -lc -lf 1024 -lp 3 -ls 2 -p 2022 -u .DLQ "{{ qmgr_name }}"
-#      register: crt_cmd   
+- name: Create MQ Queue Manager 
+  become: true
+  tasks:
+    - name: create task
+      command: "{{ item }}"
+      with_items: 
+        - sudo su - mqm
+        - crtmqm -lc -u  -q -p 2022 "{{ qmgr_name }}"
+      register: crt_cmd   
 
-#- debug:
-#   var: crt_cmd.stdout
+- debug:
+   var: crt_cmd.stdout
 
 #- name: verify status
 #  ansible.builtin.command: dspmq -m "{{ qmgr_name }}"
