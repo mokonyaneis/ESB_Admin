@@ -10,16 +10,12 @@
 - name: create task
   become: true
   ansible.builtin.command: su - mqm -c "crtmqm -lc -u .DLQ {{ qmgr_name }}"
-  register: crt_cmd   
 
-- debug:
-   var: crt_cmd.stdout
+- name: verify status
+  ansible.builtin.command: dspmq -m {{ qmgr_name }}
+  register: command_output
 
-#- name: verify status
-#  ansible.builtin.command: dspmq -m {{ qmgr_name }}
-#  register: command_output
-
-#- debug: msg="The status of QMGR {{ qmgr_name }} is:{{ command_output.stdout }}" 
+- debug: msg="Queue Manager {{ qmgr_name }} Created successful. Status:{{ command_output.stdout }}" 
     
 
 
