@@ -1,11 +1,5 @@
 ---
 
-- name: Queue Manager Name
-  vars_prompt:
-  - name: qmgr_name
-    prompt: "Queue Manager Name"
-    private: no
-
 - name: Create MQ Queue Manager 
   command: "{{item}}"
   with_items:
