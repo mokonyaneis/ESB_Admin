@@ -1,0 +1,7 @@
+MQSeriesRuntime*.rpm
+MQSeriesJava*.rpm
+MQSeriesJRE*.rpm
+MQSeriesGSKit*.rpm
+MQSeriesSDK*.rpm
+MQSeriesSamples*.rpm
+MQSeriesServer*.rpm

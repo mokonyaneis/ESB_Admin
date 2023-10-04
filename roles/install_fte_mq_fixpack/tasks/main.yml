@@ -17,7 +17,7 @@
 # Proceed with MQ installation
 - name: Install MQ BASE 
   ansible.builtin.shell: |
-    while read line; do sudo rpm -Uvh /softwares/MQ_and_ESB_BRK/9.3_fx/$line ;  done <  /softwares/MQ_and_ESB_BRK/install_files/install_broker_packages.txt
+    while read line; do sudo rpm -Uvh /softwares/MQ_and_ESB_BRK/9.3_fx/$line ;  done <  /softwares/MQ_and_ESB_BRK/install_files/install_fte_packages.txt
     sudo /opt/mqm/bin/setmqinst -n Installation1 -p /opt/mqm -i
   register: inst_cmd
 
