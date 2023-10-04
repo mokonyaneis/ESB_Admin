@@ -1,7 +1,7 @@
 ---
 
 - name: print qmgr name
-  ansible.builtin.command: echo "{{ qmgr_name }}""
+  ansible.builtin.command: echo "{{ qmgr_name }}"
   register: qmgrname
 
 - debug:
