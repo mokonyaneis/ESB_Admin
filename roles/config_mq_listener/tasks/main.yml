@@ -1,7 +1,7 @@
 ---
 
 - name: verify status
-  ansible.builtin.command:  dspmq -m {{ qmgr_name }}
+  ansible.builtin.command:  su - mqm -c "dspmq -m {{ qmgr_name }}"
   register: command_output
 
 - debug: msg="Queue Manager started successful. Status:{{ command_output.stdout }}" 
