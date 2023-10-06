@@ -1,6 +1,7 @@
 ---
 
 - name: verify status
+  become: true
   ansible.builtin.command:  su - mqm -c "dspmq -m {{ qmgr_name }}"
   register: command_output
 
@@ -10,6 +11,7 @@
 #  ansible.builtin.command: su - mqm -c "echo 'DEF LISTENER({{ qmgr_name }}.LSNR) TRPTYPE(TCP) PORT({{ lstnr_port }}) CONTROL(QMGR)' | runmqsc {{ qmgr_name }}"
 
 - name: Check MQ QMGRs Listeners
+  become: true
   ansible.builtin.command: su - mqm -c "echo QMGRFTE2"
   register: lstnr_output
 
