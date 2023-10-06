@@ -7,12 +7,13 @@
 
 - debug: msg="Queue Manager started successful. Status:{{ command_output.stdout }}" 
 
-#- name: Create MQ QMGRs Listeners
-#  ansible.builtin.command: su - mqm -c "echo 'DEF LISTENER({{ qmgr_name }}.LSNR) TRPTYPE(TCP) PORT({{ lstnr_port }}) CONTROL(QMGR)' | runmqsc {{ qmgr_name }}"
+- name: Create MQ QMGRs Listeners
+   become: true
+  ansible.builtin.command: su - mqm -c "echo 'DEF LISTENER({{ qmgr_name }}.LSNR) TRPTYPE(TCP) PORT({{ lstnr_port }}) CONTROL(QMGR)' | runmqsc {{ qmgr_name }}"
 
-- name: Check MQ QMGRs Listeners
-  become: true
-  ansible.builtin.command: su - mqm -c "echo QMGRFTE2"
-  register: lstnr_output
+#- name: Check MQ QMGRs Listeners
+#  become: true
+#  ansible.builtin.command: su - mqm -c "echo QMGRFTE2"
+#  register: lstnr_output
 
-- debug: msg="Queue Manager started successful. Status:{{ lstnr_output.stdout }}" 
+#- debug: msg="Queue Manager started successful. Status:{{ lstnr_output.stdout }}" 
