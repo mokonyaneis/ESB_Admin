@@ -10,7 +10,7 @@
 #  ansible.builtin.command: su - mqm -c "echo 'DEF LISTENER({{ qmgr_name }}.LSNR) TRPTYPE(TCP) PORT({{ lstnr_port }}) CONTROL(QMGR)' | runmqsc {{ qmgr_name }}"
 
 - name: Check MQ QMGRs Listeners
-  ansible.builtin.command: su - mqm -c 'echo "dis listener(*)" | runmqsc {{ qmgr_name }}'
+  ansible.builtin.command: su - mqm -c echo "dis listener(*)" | runmqsc QMGRFTE2
   register: lstnr_output
 
 - debug: msg="Queue Manager started successful. Status:{{ lstnr_output.stdout }}" 
