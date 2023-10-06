@@ -2,4 +2,4 @@
 
 - hosts: all
   roles: 
-   - role: config_mq_fte_qmgrs
+   - role: config_mq_listener
