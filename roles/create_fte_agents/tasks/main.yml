@@ -1,0 +1,31 @@
+---
+
+# This is to create an automated file transfer using  FTE agent between created queue managers to send *.* file from QM1 to QM2
+
+- name: Create FTE Coordinatort and Command Q
+  become: true
+  become_user: mqm
+  gather_facts: no
+  ansible.builtin.shell: |
+   fteSetupCoordination -coordinationQMgr QMG_TEST1 -coordinationQMgrHost itulabhost -coordinationQMgrPort 2020 -coordinationQMgrChannel SYSTEM.DEF.SVRCONN
+   #'runmqsc QMG_TEST1 < /var/mqm/mqft/config/MQG_TEST1/QMG_TEST1.mqsc'
+   #'fteSetupCommands -connectionQMgr QMG_TEST1 -connectionQMgrHost itulabhost -connectionQMgrPort 2020 -connectionQMgrChannel SYSTEM.DEF.SVRCONN'
+
+
+# - name: Create QMG_TEST1_AGENT and QMG_TEST2_AGENT
+#  become: true
+#  become_user: mqm
+#  gather_facts: no
+#  ansible.builtin.shell: |
+#   echo "fteCreateAgent -agentName QMG_TEST1_AGENT  -agentQMgr QMG_TEST1  -agentQMgrHost itulabhost -agentQMgrPort 2020 -agentQMgrChannel SYSTEM.DEF.SVRCONN"
+#   echo "fteCreateAgent -agentName QMG_TEST2_AGENT  -agentQMgr QMG_TEST2  -agentQMgrHost itulabhost -agentQMgrPort 2021 -agentQMgrChannel SYSTEM.DEF.SVRCONN"
+
+
+
+# - name: Create a tranfer
+#  become: true
+#  become_user: mqm
+#  gather_facts: no
+#  ansible.builtin.shell: |
+#   su - mqm -c "fteCreateTransfer -sa QMG_TEST1_AGENT -da QMG_TEST2_AGENT -df /var/mqm/mqft/Transfers/QMG_TEST2/*.* /var/mqm/mqft/Transfers/QMG_TEST1/*.*"
+  

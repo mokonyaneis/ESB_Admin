@@ -1,0 +1,44 @@
+---
+
+# This playbook is to create and configure MQ resources before FTE
+#- name: Create MQ Queue Manager 
+#  ansible.builtin.shell: |
+#     su - mqm -c "crtmqm LABFTE1"
+#     su - mqm -c "crtmqm LABFTE2"
+#  register: crt_cmd
+
+#- debug:
+#   var: crt_cmd.stdout
+
+#- name: Start MQ QMGRs
+#  ansible.builtin.shell: |
+#     su - mqm -c "strmqm LABFTE1"
+#     su - mqm -c "strmqm LABFTE2"
+
+- name: verify status
+  ansible.builtin.command:  su - mqm -c "dspmq -m {{ qmgr_name }}"
+  register: command_output
+
+- debug: msg="Queue Manager started successful. Status:{{ command_output.stdout }}" 
+
+- name: Create MQ QMGRs Listeners
+  ansible.builtin.command: su - mqm -c "echo 'DEF LISTENER({{ qmgr_name }}.LSNR) TRPTYPE(TCP) PORT({{ lstnr_port }}) CONTROL(QMGR)'' | runmqsc {{ qmgr_name }}"
+    #su - mqm -c 'echo "DEF LISTENER({{ qmgr_name }}.LSNR) TRPTYPE(TCP) PORT({{ lstnr_port }}) CONTROL(QMGR)" | runmqsc {{ qmgr_name }}'
+    #su - mqm -c 'echo "START LISTENER({{ qmgr_name }}.LSNR)"  | runmqsc {{ qmgr_name }}'
+
+#- name: Configure MQ XMIT Queue and Remote Q def
+#  ansible.builtin.shell: |
+#     su - mqm -c 'echo "DEF QL(SEND_FILES) USAGE(XMITQ) DEFPSIST(YES)" | runmqsc LABFTE1'
+#     su - mqm -c 'echo "DEF QR(PDF_FILES) RNAME(PDF_FILES) RQMNAME(LABFTE2) XMITQ(SEND_FILES)" | runmqsc LABFTE1'
+#     su - mqm -c 'echo "DEF QL(PDF_FILES) USAGE(NORMAL) DEFPSIST(YES)" | runmqsc LABFTE2'
+
+#- name: Configure MQ Channels 
+#  ansible.builtin.shell: |
+#     su - mqm -c 'echo "DEF CHL(LABFTE1.LABFTE2) CHLTYPE(SDR)  CONNAME('localhost(2021)') XMITQ(SEND_FILES) TRPTYPE(TCP) MCAUSER('mqm')" | runmqsc LABFTE1'
+#     su - mqm -c 'echo "DEF CHL(LABFTE1.LABFTE2) CHLTYPE(RCVR) TRPTYPE(TCP) MCAUSER('mqm')" | runmqsc LABFTE2'
+
+#- name: Start MQ Channels
+#  ansible.builtin.shell: |
+#     su - mqm -c 'echo "START CHL(LABFTE1.LABFTE2)" | runmqsc LABFTE1'
+   
+
