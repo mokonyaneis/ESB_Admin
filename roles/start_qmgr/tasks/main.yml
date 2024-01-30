@@ -5,6 +5,7 @@
   ansible.builtin.command: su - mqm -c "strmqm {{ qmgr_name }}"
 
 - name: verify status
+  become: true
   ansible.builtin.command:  su - mqm -c "dspmq -m {{ qmgr_name }}"
   register: command_output
 
