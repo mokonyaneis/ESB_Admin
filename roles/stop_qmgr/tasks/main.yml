@@ -5,7 +5,8 @@
   ansible.builtin.command: su - mqm -c "endmqm -i {{ qmgr_name }}"
 
 - name: verify status
-  ansible.builtin.command: dspmq -m {{ qmgr_name }}
+  become: true
+  ansible.builtin.command: su - mqm -c "dspmq -m {{ qmgr_name }}"
   register: command_output
 
 - debug: msg="Queue Manager {{ qmgr_name }} stopped successful. Status:{{ command_output.stdout }}" 
