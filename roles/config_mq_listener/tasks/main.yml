@@ -5,15 +5,15 @@
   ansible.builtin.command:  su - mqm -c 'dspmq -m {{ qmgr_name }}'
   register: result
 
-- debug: msg="Status:{{ result.stdout }}" 
+- debug: msg="Status:{{ result.stdout | to_nice_yaml }}" 
 
-- name: Create MQ QMGRs Listeners
-  become: true
-  ansible.builtin.command: su - mqm -c "echo 'DEF LISTENER({{ qmgr_name }}.LSNR) TRPTYPE(TCP) PORT({{ lstnr_port }}) CONTROL(QMGR)' | runmqsc {{ qmgr_name }}"
+#- name: Create MQ QMGRs Listeners
+#  become: true
+#  ansible.builtin.command: su - mqm -c "echo 'DEF LISTENER({{ qmgr_name }}.LSNR) TRPTYPE(TCP) PORT({{ lstnr_port }}) CONTROL(QMGR)' | runmqsc {{ qmgr_name }}"
 
-- name: Start QMGR Listener
-  become: true
-  ansible.builtin.command: su - mqm -c "echo 'START LISTENER({{ qmgr_name }}.LSNR)' | runmqsc {{ qmgr_name }}"
+#- name: Start QMGR Listener
+#  become: true
+# ansible.builtin.command: su - mqm -c "echo 'START LISTENER({{ qmgr_name }}.LSNR)' | runmqsc {{ qmgr_name }}"
 
 - name: Check MQ QMGRs Listeners
   become: true
