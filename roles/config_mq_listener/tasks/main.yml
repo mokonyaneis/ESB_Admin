@@ -20,4 +20,6 @@
   ansible.builtin.command: su - mqm -c "echo 'DIS LSSTATUS({{ qmgr_name }}.LSNR)' | runmqsc {{ qmgr_name }}"
   register: lstnr_output
 
-- debug: msg="Listener Status:{{ lstnr_output.stdout }}" 
+- debug: msg="Listener Status:{{ lstnr_output.stdout | to_nice_yaml }}" 
+
+# {{ lookup('ansible.builtin.env', 'YOUR_KEY') }}
