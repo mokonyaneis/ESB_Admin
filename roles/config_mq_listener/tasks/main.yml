@@ -8,19 +8,13 @@
 
 - debug: msg="Status:{{ result.stdout }}" 
 
-
-#- name: Print queue manager status
-#  ansible.builtin.debug:
-#    var: result
-#    verbosity: 2
-
 #- name: Create MQ QMGRs Listeners
 #  become: true
 #  ansible.builtin.command: su - mqm -c "echo 'DEF LISTENER({{ qmgr_name }}.LSNR) TRPTYPE(TCP) PORT({{ lstnr_port }}) CONTROL(QMGR)' | runmqsc {{ qmgr_name }}"
 
-#- name: Check MQ QMGRs Listeners
-#  become: true
-#  ansible.builtin.command: su - mqm -c "echo 'DIS LISTENER(*) Port' | runmqsc {{ qmgr_name }}"
-#  register: lstnr_output
+- name: Check MQ QMGRs Listeners
+  become: true
+  ansible.builtin.command: su - mqm -c "echo 'DIS LISTENER(*) Port' | runmqsc {{ qmgr_name }}"
+  register: lstnr_output
 
-#- debug: msg="Channel created successful. Status:{{ lstnr_output.stdout }}" 
+- debug: msg="Listener Status:{{ lstnr_output.stdout }}" 
