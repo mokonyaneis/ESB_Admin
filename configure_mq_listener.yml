@@ -1,5 +1,5 @@
 ---
 
-- hosts: all
+- hosts: mqbroker
   roles: 
    - role: config_mq_listener
