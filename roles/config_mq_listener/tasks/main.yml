@@ -5,11 +5,14 @@
   ansible.builtin.command:  echo {{ qmgr_name }}
   #ansible.builtin.command:  su - mqm -c 'dspmq -m {{ qmgr_name }}'
   register: result
+  
+- debug: msg="Status:{{ result.stdout }}" 
 
-- name: Print queue manager status
-  ansible.builtin.debug:
-    var: result
-    verbosity: 2
+
+#- name: Print queue manager status
+#  ansible.builtin.debug:
+#    var: result
+#    verbosity: 2
 
 #- name: Create MQ QMGRs Listeners
 #  become: true
