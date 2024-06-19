@@ -2,7 +2,6 @@
 
 - name: verify status
   become: true
-  #ansible.builtin.command:  echo {{ qmgr_name }}
   ansible.builtin.command:  su - mqm -c 'dspmq -m {{ qmgr_name }}'
   register: result
 
