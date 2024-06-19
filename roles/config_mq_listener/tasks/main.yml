@@ -5,15 +5,18 @@
   ansible.builtin.command:  su - mqm -c "dspmq -m {{ qmgr_name }}"
   register: command_output
 
-- debug: msg="Queue Manager started successful. Status:{{ command_output.stdout }}" 
+- name: Print queue manager status
+  ansible.builtin.debug:
+    var: command_output
+    verbosity: 2
 
-- name: Create MQ QMGRs Listeners
-  become: true
-  ansible.builtin.command: su - mqm -c "echo 'DEF LISTENER({{ qmgr_name }}.LSNR) TRPTYPE(TCP) PORT({{ lstnr_port }}) CONTROL(QMGR)' | runmqsc {{ qmgr_name }}"
+#- name: Create MQ QMGRs Listeners
+#  become: true
+#  ansible.builtin.command: su - mqm -c "echo 'DEF LISTENER({{ qmgr_name }}.LSNR) TRPTYPE(TCP) PORT({{ lstnr_port }}) CONTROL(QMGR)' | runmqsc {{ qmgr_name }}"
 
-- name: Check MQ QMGRs Listeners
-  become: true
-  ansible.builtin.command: su - mqm -c "echo 'DIS LISTENER(*) Port' | runmqsc {{ qmgr_name }}"
-  register: lstnr_output
+#- name: Check MQ QMGRs Listeners
+#  become: true
+#  ansible.builtin.command: su - mqm -c "echo 'DIS LISTENER(*) Port' | runmqsc {{ qmgr_name }}"
+#  register: lstnr_output
 
-- debug: msg="Queue Manager started successful. Status:{{ lstnr_output.stdout }}" 
+#- debug: msg="Channel created successful. Status:{{ lstnr_output.stdout }}" 
